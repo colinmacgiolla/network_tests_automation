@@ -19,7 +19,7 @@
         <link rel="next" href="../result_manager/">
       
       <link rel="icon" href="../../imgs/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
     
     
       
@@ -541,6 +541,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -658,41 +662,13 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../tests.system/" class="md-nav__link">
-        System
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tests.software/" class="md-nav__link">
-        Software
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_8" >
       
       
         
@@ -704,13 +680,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_7_8" id="__nav_7_8_label" tabindex="0">
           Routing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_7_10">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_8">
           <span class="md-nav__icon md-icon"></span>
           Routing
         </label>
@@ -760,6 +736,62 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests.security/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests.snmp/" class="md-nav__link">
+        SNMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests.software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests.system/" class="md-nav__link">
+        System
+      </a>
     </li>
   
 
@@ -2170,14 +2202,16 @@ def test(self) -&gt; None:
           <td><p>Test command</p></td>
         </tr>
         <tr>
-          <td><code>version(str)</code></td>
+          <td><code>version</code></td>
           <td>
+                <code><span title="typing.Union">Union</span>[int, <span title="typing.Literal">Literal</span>[&#39;latest&#39;]]</code>
           </td>
-          <td><p>eAPI version - default is latest</p></td>
+          <td><p>eAPI version - valid values are integers or the string &ldquo;latest&rdquo; - default is &ldquo;latest&rdquo;</p></td>
         </tr>
         <tr>
           <td><code>ofmt(str)</code></td>
           <td>
+                <code><span title="typing.Union">Union</span>[int, <span title="typing.Literal">Literal</span>[&#39;latest&#39;]]</code>
           </td>
           <td><p>eAPI output - json or text - default is json</p></td>
         </tr>
@@ -2213,13 +2247,13 @@ def test(self) -&gt; None:
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        command(str): Test command</span>
-<span class="sd">        version(str): eAPI version - default is latest</span>
+<span class="sd">        version: eAPI version - valid values are integers or the string &quot;latest&quot; - default is &quot;latest&quot;</span>
 <span class="sd">        ofmt(str):  eAPI output - json or text - default is json</span>
 <span class="sd">        output: collected output either dict for json or str for text</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">command</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;latest&quot;</span>
+    <span class="n">version</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;latest&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">&quot;latest&quot;</span>
     <span class="n">ofmt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
     <span class="n">output</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">str</span><span class="p">]]</span>
     <span class="n">is_dynamic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -2275,20 +2309,23 @@ def test(self) -&gt; None:
           <td><p>Test command</p></td>
         </tr>
         <tr>
-          <td><code>version(str)</code></td>
+          <td><code>version</code></td>
           <td>
+                <code><span title="typing.Union">Union</span>[int, <span title="typing.Literal">Literal</span>[&#39;latest&#39;]]</code>
           </td>
-          <td><p>eAPI version - default is latest</p></td>
+          <td><p>eAPI version - valid values are integers or the string &ldquo;latest&rdquo; - default is &ldquo;latest&rdquo;</p></td>
         </tr>
         <tr>
           <td><code>ofmt(str)</code></td>
           <td>
+                <code><span title="typing.Union">Union</span>[int, <span title="typing.Literal">Literal</span>[&#39;latest&#39;]]</code>
           </td>
           <td><p>eAPI output - json or text - default is json</p></td>
         </tr>
         <tr>
           <td><code>output</code></td>
           <td>
+                <code><span title="typing.Union">Union</span>[int, <span title="typing.Literal">Literal</span>[&#39;latest&#39;]]</code>
           </td>
           <td><p>collected output either dict for json or str for text</p></td>
         </tr>
@@ -2315,13 +2352,13 @@ def test(self) -&gt; None:
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        command(str): Test command</span>
-<span class="sd">        version(str): eAPI version - default is latest</span>
+<span class="sd">        version: eAPI version - valid values are integers or the string &quot;latest&quot; - default is &quot;latest&quot;</span>
 <span class="sd">        ofmt(str):  eAPI output - json or text - default is json</span>
 <span class="sd">        output: collected output either dict for json or str for text</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">template</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;latest&quot;</span>
+    <span class="n">version</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;latest&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">&quot;latest&quot;</span>
     <span class="n">ofmt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
 </code></pre></div></td></tr></table></div>
         </details>
@@ -2351,7 +2388,7 @@ def test(self) -&gt; None:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 11, 2023</span>
       
     
   </small>
