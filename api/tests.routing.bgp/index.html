@@ -19,7 +19,7 @@
         <link rel="next" href="../tests.routing.ospf/">
       
       <link rel="icon" href="../../imgs/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
     
     
       
@@ -547,6 +547,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -583,6 +585,20 @@
     <li class="md-nav__item">
       <a href="../tests.configuration/" class="md-nav__link">
         Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests.field_notices/" class="md-nav__link">
+        Field Notices
       </a>
     </li>
   
@@ -672,7 +688,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_8" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_9" checked>
       
       
         
@@ -684,13 +700,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_7_8" id="__nav_7_8_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
           Routing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_8_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_7_8">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_7_9">
           <span class="md-nav__icon md-icon"></span>
           Routing
         </label>
@@ -1966,16 +1982,16 @@ and the actual number of BGP IPv4 unicast neighbors is the one we expect.</p>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">number</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_skipped</span><span class="p">(</span><span class="s2">&quot;VerifyBGPIPv4UnicastCount could not run because number was not supplied&quot;</span><span class="p">)</span>
             <span class="k">return</span>
-        <span class="n">vrf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_params</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;vrf&quot;</span><span class="p">]</span>
-        <span class="n">command_output</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 
-        <span class="n">peers</span> <span class="o">=</span> <span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">][</span><span class="n">vrf</span><span class="p">][</span><span class="s2">&quot;peers&quot;</span><span class="p">]</span>
-        <span class="n">state_issue</span> <span class="o">=</span> <span class="n">_check_bgp_vrfs</span><span class="p">(</span><span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">state_issue</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">peers</span><span class="p">)</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">command</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">):</span>
+            <span class="n">vrf</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">command</span><span class="o">.</span><span class="n">template_params</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vrf&quot;</span><span class="p">)</span>
+            <span class="n">command_output</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+            <span class="n">peers</span> <span class="o">=</span> <span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">][</span><span class="n">vrf</span><span class="p">][</span><span class="s2">&quot;peers&quot;</span><span class="p">]</span>
+            <span class="n">state_issue</span> <span class="o">=</span> <span class="n">_check_bgp_vrfs</span><span class="p">(</span><span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">])</span>
+
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">peers</span><span class="p">)</span> <span class="o">!=</span> <span class="n">number</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> BGP peer in vrf </span><span class="si">{</span><span class="n">vrf</span><span class="si">}</span><span class="s2"> and got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">peers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">state_issue</span><span class="p">:</span>
@@ -2040,16 +2056,16 @@ and the actual number of BGP IPv4 unicast neighbors is the one we expect.</p>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">number</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_skipped</span><span class="p">(</span><span class="s2">&quot;VerifyBGPIPv4UnicastCount could not run because number was not supplied&quot;</span><span class="p">)</span>
         <span class="k">return</span>
-    <span class="n">vrf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_params</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;vrf&quot;</span><span class="p">]</span>
-    <span class="n">command_output</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 
-    <span class="n">peers</span> <span class="o">=</span> <span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">][</span><span class="n">vrf</span><span class="p">][</span><span class="s2">&quot;peers&quot;</span><span class="p">]</span>
-    <span class="n">state_issue</span> <span class="o">=</span> <span class="n">_check_bgp_vrfs</span><span class="p">(</span><span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">state_issue</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">peers</span><span class="p">)</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">command</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">):</span>
+        <span class="n">vrf</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">command</span><span class="o">.</span><span class="n">template_params</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vrf&quot;</span><span class="p">)</span>
+        <span class="n">command_output</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+        <span class="n">peers</span> <span class="o">=</span> <span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">][</span><span class="n">vrf</span><span class="p">][</span><span class="s2">&quot;peers&quot;</span><span class="p">]</span>
+        <span class="n">state_issue</span> <span class="o">=</span> <span class="n">_check_bgp_vrfs</span><span class="p">(</span><span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;vrfs&quot;</span><span class="p">])</span>
+
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">peers</span><span class="p">)</span> <span class="o">!=</span> <span class="n">number</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> BGP peer in vrf </span><span class="si">{</span><span class="n">vrf</span><span class="si">}</span><span class="s2"> and got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">peers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">state_issue</span><span class="p">:</span>
@@ -2736,7 +2752,7 @@ and the actual number of BGP RTC neighbors is the one we expect (default VRF).</
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 11, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 12, 2023</span>
       
     
   </small>
@@ -2829,7 +2845,7 @@ and the actual number of BGP RTC neighbors is the one we expect (default VRF).</
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "content.tabs.link", "content.code.copy", "toc.follow", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c2be25ad.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       
