@@ -19,7 +19,7 @@
         <link rel="next" href="../models/">
       
       <link rel="icon" href="../../imgs/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -27,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -547,6 +547,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -569,6 +573,20 @@
     <li class="md-nav__item">
       <a href="../tests/" class="md-nav__link">
         Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests.aaa/" class="md-nav__link">
+        AAA
       </a>
     </li>
   
@@ -637,6 +655,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../tests.logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tests.mlag/" class="md-nav__link">
         MLAG
       </a>
@@ -684,7 +716,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_11" >
       
       
         
@@ -696,13 +728,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_7_11" id="__nav_7_11_label" tabindex="0">
           Routing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_7_9">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_11">
           <span class="md-nav__icon md-icon"></span>
           Routing
         </label>
@@ -1440,70 +1472,110 @@
           <td>
                 <code>str</code>
           </td>
-          <td><p>Device name</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>Device name</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>username</code></td>
           <td>
                 <code>str</code>
           </td>
-          <td><p>Username to use for connection.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>Username to use for connection.</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>password</code></td>
           <td>
                 <code><span title="anta.inventory.models.InventoryDevice.password">password</span></code>
           </td>
-          <td><p>Password to use for connection.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>Password to use for connection.</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>enable_password</code></td>
           <td>
                 <code><span title="typing.Optional">Optional</span>[str]</code>
           </td>
-          <td><p>enable_password to use on the device, required for some tests</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>enable_password to use on the device, required for some tests</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>session</code></td>
           <td>
                 <code><span title="typing.Any">Any</span></code>
           </td>
-          <td><p>JSONRPC session.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>JSONRPC session.</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>established</code></td>
           <td>
                 <code>bool</code>
           </td>
-          <td><p>Flag to mark if connection is established (True) or not (False). Default: False.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>Flag to mark if connection is established (True) or not (False). Default: False.</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>is_online</code></td>
           <td>
                 <code>bool</code>
           </td>
-          <td><p>Flag to mark if host is alive (True) or not (False). Default: False.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>Flag to mark if host is alive (True) or not (False). Default: False.</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>hw_model</code></td>
           <td>
                 <code>str</code>
           </td>
-          <td><p>HW name gathered during device discovery.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>HW name gathered during device discovery.</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>url</code></td>
           <td>
                 <code>str</code>
           </td>
-          <td><p>eAPI URL to use to build session.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>eAPI URL to use to build session.</p>
+            </div>
+          </td>
         </tr>
         <tr>
           <td><code>tags</code></td>
           <td>
                 <code><span title="typing.List">List</span>[str]</code>
           </td>
-          <td><p>List of attached tags read from inventory file.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>List of attached tags read from inventory file.</p>
+            </div>
+          </td>
         </tr>
     </tbody>
   </table>
@@ -2107,7 +2179,11 @@ TODO: Build documentation</p>
           <td><code>__root__(List[InventoryDevice])</code></td>
           <td>
           </td>
-          <td><p>A list of InventoryDevice objects.</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>A list of InventoryDevice objects.</p>
+            </div>
+          </td>
         </tr>
     </tbody>
   </table>
@@ -2347,7 +2423,7 @@ TODO: Build documentation</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 12, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 1, 2023</span>
       
     
   </small>
@@ -2440,7 +2516,7 @@ TODO: Build documentation</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "content.tabs.link", "content.code.copy", "toc.follow", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c2be25ad.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       
