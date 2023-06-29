@@ -19,7 +19,7 @@
         <link rel="next" href="../tests.field_notices/">
       
       <link rel="icon" href="../../imgs/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
@@ -553,6 +553,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -903,6 +905,20 @@
     <li class="md-nav__item">
       <a href="../tests.snmp/" class="md-nav__link">
         SNMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests.stp/" class="md-nav__link">
+        STP
       </a>
     </li>
   
@@ -1410,7 +1426,7 @@
 <span class="sd">    Verifies there is no difference between the running-config and the startup-config.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;verify_running_config_diffs&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;VerifyRunningConfigDiffs&quot;</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;configuration&quot;</span><span class="p">]</span>
     <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="n">AntaTestCommand</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;show running-config diffs&quot;</span><span class="p">,</span> <span class="n">ofmt</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)]</span>
@@ -1418,15 +1434,15 @@
     <span class="nd">@AntaTest</span><span class="o">.</span><span class="n">anta_test</span>
     <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Run VerifyRunningConfigDiffs validation&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.instance_commands is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.instance_commands is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">command_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;command_output is </span><span class="si">{</span><span class="n">command_output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;command_output is </span><span class="si">{</span><span class="n">command_output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">command_output</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">command_output</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">command_output</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
         </details>
 
@@ -1472,15 +1488,15 @@
 <span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@AntaTest</span><span class="o">.</span><span class="n">anta_test</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run VerifyRunningConfigDiffs validation&quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.instance_commands is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.instance_commands is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">command_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;command_output is </span><span class="si">{</span><span class="n">command_output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;command_output is </span><span class="si">{</span><span class="n">command_output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">command_output</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">command_output</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_failure</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">command_output</span><span class="p">))</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1541,7 +1557,7 @@
 <span class="sd">    Verifies ZeroTouch is disabled.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;verify_zerotouch&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;VerifyZeroTouch&quot;</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Verifies ZeroTouch is disabled.&quot;</span>
     <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;configuration&quot;</span><span class="p">]</span>
     <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="n">AntaTestCommand</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;show zerotouch&quot;</span><span class="p">)]</span>
@@ -1549,9 +1565,9 @@
     <span class="nd">@AntaTest</span><span class="o">.</span><span class="n">anta_test</span>
     <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Run VerifyZeroTouch validation&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.instance_commands is: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
         <span class="n">command_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dataset is: </span><span class="si">{</span><span class="n">command_output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command_output</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;disabled&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
@@ -1601,9 +1617,9 @@
 <span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@AntaTest</span><span class="o">.</span><span class="n">anta_test</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run VerifyZeroTouch validation&quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.instance_commands is: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
     <span class="n">command_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_commands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dataset is: </span><span class="si">{</span><span class="n">command_output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command_output</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">command_output</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;disabled&quot;</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">is_success</span><span class="p">()</span>
@@ -1637,7 +1653,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 1, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2023</span>
       
     
   </small>
@@ -1730,11 +1746,15 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "content.tabs.link", "content.code.copy", "toc.follow", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+        
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+        
       
     
   </body>
